@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA0217A4232260B400AEF4DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0217A3232260B400AEF4DD /* AppDelegate.swift */; };
 		DA0217A6232260B400AEF4DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0217A5232260B400AEF4DD /* SceneDelegate.swift */; };
-		DA0217A8232260B400AEF4DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0217A7232260B400AEF4DD /* ContentView.swift */; };
+		DA0217A8232260B400AEF4DD /* RadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0217A7232260B400AEF4DD /* RadioGroup.swift */; };
 		DA0217AA232260B500AEF4DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA0217A9232260B500AEF4DD /* Assets.xcassets */; };
 		DA0217AD232260B500AEF4DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA0217AC232260B500AEF4DD /* Preview Assets.xcassets */; };
 		DA0217B0232260B500AEF4DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0217AE232260B500AEF4DD /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		DA0217A0232260B400AEF4DD /* RadioGroupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioGroupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0217A3232260B400AEF4DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA0217A5232260B400AEF4DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA0217A7232260B400AEF4DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DA0217A7232260B400AEF4DD /* RadioGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGroup.swift; sourceTree = "<group>"; };
 		DA0217A9232260B500AEF4DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA0217AC232260B500AEF4DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA0217AF232260B500AEF4DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				DA0217A3232260B400AEF4DD /* AppDelegate.swift */,
 				DA0217A5232260B400AEF4DD /* SceneDelegate.swift */,
-				DA0217A7232260B400AEF4DD /* ContentView.swift */,
+				DA0217A7232260B400AEF4DD /* RadioGroup.swift */,
 				DA0217A9232260B500AEF4DD /* Assets.xcassets */,
 				DA0217AE232260B500AEF4DD /* LaunchScreen.storyboard */,
 				DA0217B1232260B500AEF4DD /* Info.plist */,
@@ -148,7 +148,7 @@
 			files = (
 				DA0217A4232260B400AEF4DD /* AppDelegate.swift in Sources */,
 				DA0217A6232260B400AEF4DD /* SceneDelegate.swift in Sources */,
-				DA0217A8232260B400AEF4DD /* ContentView.swift in Sources */,
+				DA0217A8232260B400AEF4DD /* RadioGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
