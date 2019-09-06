@@ -6,4 +6,5 @@
 
 # TODO:
 
-Support Swift package.
+- Support Swift package.
+- Event callback
