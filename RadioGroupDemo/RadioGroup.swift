@@ -8,37 +8,22 @@
 
 import SwiftUI
 
-final class RadioData: ObservableObject  {
-  @Published var all: [RadioItemData]
-  
-  init(all: [RadioItemData]) {
-    self.all = all
-  }
-}
-
-struct RadioItemData: Identifiable {
-  var id: Int
-  var name: String
-  var isSelected: Bool
-}
-
 struct RadioButtonRow: View {
-  
-  @EnvironmentObject var radioData: RadioData
-  var item: RadioItemData
+  var index: Int
+  // TODO: make it the function builder like .tabItem in TabView
+  var name: String
+  @Binding var isSelected: Bool
+  var action: (_ index:Int) -> Void
+  // TODO: make it function builder?
   var appearance = RadioGroup.Appearance()
-
-  var index: Int {
-    radioData.all.firstIndex(where: { $0.id == item.id })!
-  }
   
   private func radioText(color: Color = .primary, font: Font = .body) -> some View {
-    return Text(item.name)
+    return Text(name)
       .lineLimit(nil)
       .foregroundColor(color)
       .font(font)
   }
-  
+
   var body: some View {
     let size: CGFloat = appearance.style == .large ? 40: (appearance.style == .medium ? 30: 20)
     let inset: CGFloat = appearance.style == .large ? 10: (appearance.style == .medium ? 8: 6)
@@ -48,20 +33,9 @@ struct RadioButtonRow: View {
         radioText(color: appearance.color, font: appearance.font)
       }
       Button(action: {
-        if self.item.isSelected {
-          return
-        }
-        
-        for (index,item) in self.radioData.all.enumerated() {
-          // remove previous isSelected flag
-          if item.isSelected {
-            self.radioData.all[index].isSelected.toggle()
-            break
-          }
-        }
-        self.radioData.all[self.index].isSelected.toggle()
+        self.action(self.index)
       }) {
-        if item.isSelected {
+        if isSelected {
           Circle().inset(by: inset)
         }
       }.frame(width: size, height: size, alignment: .center)
@@ -72,20 +46,6 @@ struct RadioButtonRow: View {
       )
       if appearance.textPosition == .right {
         radioText(color: appearance.color, font: appearance.font)
-      }
-    }
-  }
-}
-
-private struct RadioGroupContainerView: View {
-  @EnvironmentObject var radioData: RadioData
-  fileprivate var appearance: RadioGroup.Appearance
-  
-  var body: some View {
-    VStack {
-      ForEach(radioData.all) {
-        item in
-        RadioButtonRow(item: item,appearance: self.appearance)
       }
     }
   }
@@ -111,23 +71,22 @@ struct RadioGroup: View {
   }
   
   var names: [String]
-  var selection:Int
-  fileprivate var appearance: Appearance
-  
-  private let allItems: [RadioItemData]
-  
-  init(names:[String], selection: Int = 0, appearance: Appearance = Appearance()) {
-    self.names = names
-    self.selection = selection
-    self.allItems = names.enumerated().map {
-      (index, name) in
-      return RadioItemData(id: index, name: name, isSelected: index == selection)
-    }
-    self.appearance = appearance
-  }
-  
+  @State var selection:Int
+  // TODO: use function builder or modifier to modify the Appearance
+  var appearance = Appearance()
+    
   var body: some View {
-    RadioGroupContainerView(appearance: appearance).environmentObject(RadioData(all: self.allItems))
+    VStack {
+      ForEach(0..<names.count,id:\.self) {
+        index in
+        
+        RadioButtonRow(index: index, name: self.names[index], isSelected: .constant(self.selection==index), action: { (i) in
+          print(i)
+          self.selection = i
+        }, appearance: self.appearance)
+      }
+    }
+
   }
 }
 
